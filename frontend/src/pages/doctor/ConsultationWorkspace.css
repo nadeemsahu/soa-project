@@ -1,0 +1,149 @@
+.consultation-workspace {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 120px);
+  gap: var(--spacing-4);
+}
+
+.workspace-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: var(--spacing-4);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-subtle);
+}
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+
+.workspace-grid {
+  display: flex;
+  gap: var(--spacing-6);
+  flex: 1;
+  overflow: hidden;
+}
+
+.workspace-sidebar {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  overflow-y: auto;
+}
+
+.patient-summary-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.summary-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-3);
+}
+.patient-summary-card h3 {
+  font-size: 1.25rem;
+}
+.patient-demographic {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+.visit-reason {
+  width: 100%;
+  text-align: left;
+  background-color: var(--bg-secondary);
+  padding: var(--spacing-3);
+  border-radius: var(--radius-md);
+}
+.visit-reason h4 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 0.25rem;
+}
+.visit-reason p {
+  font-size: 0.875rem;
+  color: var(--text-primary);
+}
+
+.patient-vitals {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+.vital-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  padding: var(--spacing-2) 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.vital-row:last-child {
+  border-bottom: none;
+}
+.vital-row span {
+  color: var(--text-secondary);
+}
+
+.medical-context-card h4 {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-2);
+}
+.text-error { color: var(--error); }
+.text-primary { color: var(--primary); }
+
+.history-list {
+  list-style: disc inside;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding-left: 1.25rem;
+}
+
+.workspace-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.clinical-notes-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.card-header h2 {
+  font-size: 1.25rem;
+  margin-bottom: var(--spacing-4);
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: var(--spacing-4);
+}
+
+.clinical-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.flex-1 { flex: 1; }

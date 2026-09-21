@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+    vertical-align: middle;
+    display: inline-block;
+    line-height: 1;
+  }
+}
+
+/* Architectural scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #f5f4f0;
+}
+::-webkit-scrollbar-thumb {
+  background: #c0c8c6;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #717977;
+}
+
+/* Utility to hide scrollbars where needed but keep functionality */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

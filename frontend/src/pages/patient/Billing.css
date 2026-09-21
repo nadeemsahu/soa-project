@@ -1,0 +1,110 @@
+.billing-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+}
+
+.billing-header h1 {
+  font-size: 2rem;
+  letter-spacing: -0.025em;
+  margin-bottom: var(--spacing-2);
+}
+.billing-header p {
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+}
+
+.billing-summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-4);
+}
+
+.summary-card {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  padding: var(--spacing-6);
+}
+
+.summary-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.summary-icon.bg-warning {
+  background-color: var(--warning-light);
+  color: var(--warning-text);
+}
+.summary-icon.bg-success {
+  background-color: var(--success-light);
+  color: var(--success-text);
+}
+
+.summary-info {
+  display: flex;
+  flex-direction: column;
+}
+.summary-label {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+.summary-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.bills-table-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.apex-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.apex-table th, .apex-table td {
+  padding: var(--spacing-4) var(--spacing-6);
+  text-align: left;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.apex-table th {
+  background-color: var(--bg-secondary);
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.apex-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.apex-table tbody tr:hover {
+  background-color: var(--bg-secondary);
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.font-medium {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.no-bills {
+  padding: var(--spacing-8);
+  text-align: center;
+  color: var(--text-secondary);
+}

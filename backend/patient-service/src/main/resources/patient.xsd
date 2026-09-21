@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://apexcare.com/patient/soap"
+           targetNamespace="http://apexcare.com/patient/soap"
+           elementFormDefault="qualified">
+
+    <xs:element name="getPatientStatusRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="patientId" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getPatientStatusResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="patientId" type="xs:string"/>
+                <xs:element name="name" type="xs:string"/>
+                <xs:element name="status" type="xs:string"/>
+                <xs:element name="insuranceVerified" type="xs:boolean"/>
+                <xs:element name="eligibilityCode" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

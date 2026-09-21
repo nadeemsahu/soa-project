@@ -1,0 +1,16 @@
+# Build & Dependencies
+**/node_modules/
+**/dist/
+**/target/
+**/.mvn/wrapper/maven-wrapper.jar
+
+# IDE & Editor
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+
+# Logs & Temporary
+*.log
+.DS_Store
