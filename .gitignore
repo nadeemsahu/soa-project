@@ -12,5 +12,7 @@
 *.swo
 
 # Logs & Temporary
+logs/
 *.log
+*.pid
 .DS_Store
