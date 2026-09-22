@@ -70,7 +70,7 @@ const AdminDashboard = () => {
           <div className="bg-surface border border-outline-variant rounded p-5 shadow-sm">
             <div className="flex items-center gap-2 text-primary font-semibold text-headline-sm mb-2">
               <span className="material-symbols-outlined text-[20px]">security</span>
-              <h3>CO-2 Security & RBAC</h3>
+              <h3>Identity Governance & RBAC</h3>
             </div>
             <p className="text-body-sm font-body-sm text-on-surface-variant">
               Stateless HMAC-SHA256 JWT tokens. Granular resource-level authorization prevents Insecure Direct Object References (IDOR).

@@ -25,73 +25,73 @@ const Home = () => {
       id: 'patient',
       name: 'Patient Portal',
       roleKey: 'Patient',
-      roleCode: 'ROLE_PATIENT',
+      roleCode: 'PATIENT',
       badge: 'Self-Service & Telehealth',
       badgeColor: 'bg-primary text-on-primary',
       icon: 'patient_list',
-      description: 'Book specialist appointments with real-time schedule conflict prevention, inspect clinical health records, and pay itemized invoices.',
+      description: 'Book specialist appointments with real-time schedule conflict prevention, view clinical medical records, and settle itemized hospital invoices.',
       credentials: 'ID: PT-894120 • Eleanor Vance',
       route: '/patient',
       primaryAction: 'Enter Patient Portal',
-      features: ['Real-time 409 conflict detection', 'Clinical EHR history & allergies', 'Itemized billing & 5% tax settlement']
+      features: ['Real-time slot availability check', 'Clinical health history & allergies', 'Itemized billing & secure payment']
     },
     {
       id: 'doctor',
-      name: 'Physician Workspace',
+      name: 'Physician Station',
       roleKey: 'Doctor',
-      roleCode: 'ROLE_DOCTOR',
-      badge: 'Clinical Operations',
+      roleCode: 'PHYSICIAN',
+      badge: 'Clinical Care Node',
       badgeColor: 'bg-primary-container text-surface-bright',
       icon: 'stethoscope',
-      description: 'Review patient rosters, access active vital signs, document diagnostic clinical notes, and execute synchronous checkout orchestration.',
+      description: 'Review patient queues, inspect active vital signs, document diagnostic clinical notes, and execute coordinated consultation checkouts.',
       credentials: 'dr.julian.vance@metrogeneral.org',
       route: '/doctor',
-      primaryAction: 'Launch Doctor Station',
-      features: ['Daily patient schedule queue', 'SOAP diagnosis & vitals review', 'Synchronous checkout orchestration']
+      primaryAction: 'Launch Physician Station',
+      features: ['Daily outpatient queue management', 'Diagnostic clinical notes & vitals', 'Coordinated care checkout flow']
     },
     {
       id: 'billing',
       name: 'Revenue Operations',
       roleKey: 'Billing',
-      roleCode: 'ROLE_BILLING_STAFF',
+      roleCode: 'BILLING',
       badge: 'Financial Cycle Node',
       badgeColor: 'bg-secondary text-surface-bright',
       icon: 'receipt_long',
-      description: 'Oversee hospital claim submissions, monitor automated 5% facility tax assessments, and inspect asynchronous Kafka choreographies.',
+      description: 'Oversee hospital claim submissions, monitor automated 5% facility tax assessments, and review real-time revenue collection metrics.',
       credentials: 'revcycle.jvance@apexcare.org',
       route: '/billing-admin',
       primaryAction: 'Open Billing Control',
-      features: ['Automated Kafka event consumer', '5% facility tax computation', 'Claim settlement & revenue KPIs']
+      features: ['Automated claim processing engine', '5% facility tax computation', 'Revenue collection & claims ledger']
     },
     {
       id: 'admin',
-      name: 'Infrastructure & Governance',
+      name: 'System Administration',
       roleKey: 'Admin',
-      roleCode: 'ROLE_ADMIN',
-      badge: 'Cluster Governance',
+      roleCode: 'ADMIN',
+      badge: 'Infrastructure Node',
       badgeColor: 'bg-tertiary-container text-on-primary',
       icon: 'admin_panel_settings',
-      description: 'Monitor Netflix Eureka peer heartbeat status, inspect Spring Cloud Gateway load-balancer routes, and review zero-trust access logs.',
+      description: 'Monitor service cluster health, manage load-balanced API gateway routing, and enforce granular role-based identity clearance.',
       credentials: 'sec.admin@apexcare.net',
       route: '/admin',
-      primaryAction: 'System Operations Console',
-      features: ['Eureka service registry (Port 8761)', 'Gateway route topology (Port 8080)', 'Zero-trust JWT security auditor']
+      primaryAction: 'System Console',
+      features: ['Service discovery & cluster health', 'Load-balanced gateway routing', 'Zero-trust identity & access logs']
     }
   ];
 
   const microservices = [
-    { name: 'Eureka Server', port: '8761', tech: 'Netflix Eureka', desc: 'Centralized registry, peer heartbeat & instance discovery' },
-    { name: 'API Gateway', port: '8080', tech: 'Spring Cloud Gateway', desc: 'Reverse proxy, CORS configuration & JWT claim forwarding' },
-    { name: 'Auth Service', port: '8081', tech: 'Spring Security 6', desc: 'BCrypt password hashing, HMAC-SHA256 tokens & RBAC' },
-    { name: 'Patient Service', port: '8082', tech: 'REST + Spring-WS', desc: 'Demographics, medical history, IDOR filter & SOAP WSDL' },
-    { name: 'Appointment Service', port: '8083', tech: 'Spring Boot + Kafka', desc: 'Authoritative 409 conflict engine & checkout orchestrator' },
-    { name: 'Billing Service', port: '8084', tech: 'Kafka Consumer + JPA', desc: 'Automated 5% facility tax invoicing & payment transitions' },
+    { name: 'Service Registry', port: '8761', tech: 'Netflix Eureka', desc: 'Centralized registry, node heartbeats & dynamic peer discovery' },
+    { name: 'Edge API Gateway', port: '8080', tech: 'Spring Cloud Gateway', desc: 'Reverse proxy, load balancing, CORS security & token routing' },
+    { name: 'Auth & Identity', port: '8081', tech: 'Spring Security 6', desc: 'BCrypt password hashing, HMAC-SHA256 tokens & RBAC governance' },
+    { name: 'Patient Records', port: '8082', tech: 'REST + Spring-WS', desc: 'Electronic health records, demographics & legacy SOAP WSDL contract' },
+    { name: 'Appointment Scheduling', port: '8083', tech: 'Spring Boot + Kafka', desc: 'Authoritative schedule collision engine & consultation orchestrator' },
+    { name: 'Billing & Invoicing', port: '8084', tech: 'Kafka Consumer + JPA', desc: 'Automated 5% facility tax calculation & claim payment settlement' },
   ];
 
   const specialties = [
-    { name: 'Cardiology', doctor: 'Dr. Sarah Jenkins', exp: '12 years exp', fee: '$150', tag: 'High Demand', icon: 'cardiology' },
+    { name: 'Cardiology', doctor: 'Dr. Sarah Jenkins', exp: '12 years exp', fee: '$150', tag: 'Specialist Available', icon: 'cardiology' },
     { name: 'General Practice', doctor: 'Dr. Marcus Vance', exp: '8 years exp', fee: '$80', tag: 'Walk-ins Welcome', icon: 'clinical_notes' },
-    { name: 'Dermatology', doctor: 'Dr. Emily Chen', exp: '15 years exp', fee: '$120', tag: 'Specialist', icon: 'medical_services' },
+    { name: 'Dermatology', doctor: 'Dr. Emily Chen', exp: '15 years exp', fee: '$120', tag: 'Consultation Open', icon: 'medical_services' },
     { name: 'Orthopedics', doctor: 'Dr. Robert Hale', exp: '20 years exp', fee: '$180', tag: 'Surgical Consult', icon: 'accessibility' },
   ];
 
@@ -111,7 +111,7 @@ const Home = () => {
           </div>
           <div className="hidden xl:flex items-center gap-2 pl-space-md border-l border-outline-variant text-label-md text-on-surface-variant font-label-md">
             <span className="w-2 h-2 rounded-full bg-[#1E7B45] animate-pulse"></span>
-            <span>Metro General Hospital Network • Node 04</span>
+            <span>Metro General Hospital Network • Operational</span>
           </div>
         </div>
 
@@ -120,8 +120,8 @@ const Home = () => {
           <a href="#overview" className="hover:text-primary transition-colors">Overview</a>
           <a href="#portals" className="hover:text-primary transition-colors">Portals</a>
           <a href="#specialties" className="hover:text-primary transition-colors">Specialties</a>
-          <a href="#architecture" className="hover:text-primary transition-colors">Architecture (SOA)</a>
-          <a href="#credentials" className="hover:text-primary transition-colors">Demo Credentials</a>
+          <a href="#architecture" className="hover:text-primary transition-colors">Architecture</a>
+          <a href="#access" className="hover:text-primary transition-colors">Portal Access</a>
         </nav>
 
         {/* User Status / CTA */}
@@ -172,11 +172,11 @@ const Home = () => {
       <section id="overview" className="relative pt-12 pb-16 lg:pt-16 lg:pb-24 px-gutter lg:px-margin-desktop overflow-hidden border-b border-outline-variant bg-gradient-to-b from-surface via-surface-container-low to-surface">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          {/* Left Hero Copy */}
+          {/* Left Hero Content */}
           <div className="lg:col-span-7 space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#C6EBD0] bg-[#EBF7EE] text-[#1E7B45] text-label-sm font-label-sm font-semibold">
               <span className="w-2 h-2 rounded-full bg-[#1E7B45] animate-ping"></span>
-              <span>PS026 • Enterprise SOA & Microservices Healthcare Stack</span>
+              <span>Metro General Hospital Network • Enterprise Clinical Cloud</span>
             </div>
 
             <h1 className="text-headline-xl lg:text-[44px] lg:leading-[52px] font-headline-xl text-primary font-bold tracking-tight">
@@ -184,7 +184,7 @@ const Home = () => {
             </h1>
 
             <p className="text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
-              Engineered with Spring Boot 3.3 microservices, Apache Kafka event choreography, authoritative 409 conflict detection, zero-trust JWT access control, and legacy Spring-WS SOAP interoperability.
+              A unified digital healthcare environment engineered to streamline patient registrations, coordinate conflict-free physician consultations, safeguard clinical health records, and automate hospital revenue cycle billing.
             </p>
 
             {/* CTA Buttons */}
@@ -195,7 +195,7 @@ const Home = () => {
                 className="px-6 py-3 rounded-lg bg-primary hover:bg-primary-container text-surface-bright font-headline-sm text-body-md font-semibold flex items-center gap-2 shadow-sm transition-all transform hover:-translate-y-0.5"
               >
                 <span className="material-symbols-outlined text-[20px]">person</span>
-                <span>{loadingRole === 'Patient' ? 'Accessing...' : 'Enter Patient Portal'}</span>
+                <span>{loadingRole === 'Patient' ? 'Connecting...' : 'Enter Patient Portal'}</span>
               </button>
 
               <button
@@ -204,82 +204,152 @@ const Home = () => {
                 className="px-6 py-3 rounded-lg bg-surface border border-outline-variant hover:border-primary text-primary font-headline-sm text-body-md font-semibold flex items-center gap-2 shadow-sm transition-all transform hover:-translate-y-0.5"
               >
                 <span className="material-symbols-outlined text-[20px] text-secondary">stethoscope</span>
-                <span>{loadingRole === 'Doctor' ? 'Accessing...' : 'Physician Station'}</span>
+                <span>{loadingRole === 'Doctor' ? 'Connecting...' : 'Physician Station'}</span>
               </button>
 
               <a
                 href="#architecture"
                 className="px-4 py-3 text-body-md font-semibold text-secondary hover:text-primary flex items-center gap-1 transition-colors"
               >
-                <span>Architecture Specs</span>
+                <span>View Architecture</span>
                 <span className="material-symbols-outlined text-[16px]">south</span>
               </a>
             </div>
 
-            {/* Value Props Checklist */}
+            {/* Highlights List */}
             <div className="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-3 text-body-sm text-on-surface-variant">
               <div className="flex items-center gap-2">
                 <span className="material-symbols-outlined text-[#1E7B45] text-[18px]">verified</span>
-                <span>Schedule Conflict Prevention (409 Engine)</span>
+                <span>Schedule Collision Guard (409 Conflict Engine)</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="material-symbols-outlined text-[#1E7B45] text-[18px]">verified</span>
-                <span>Inter-Service: Appointment &rarr; Patient &rarr; Billing</span>
+                <span>Synchronized Clinical Care Pipeline</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="material-symbols-outlined text-[#1E7B45] text-[18px]">verified</span>
-                <span>Automated 5% Facility Tax & Kafka Choreography</span>
+                <span>Automated 5% Facility Tax & Claims Engine</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="material-symbols-outlined text-[#1E7B45] text-[18px]">verified</span>
-                <span>Dual REST JSON + SOAP WSDL Contract</span>
+                <span>Zero-Trust Token Authorization & IDOR Protection</span>
               </div>
             </div>
           </div>
 
-          {/* Right Hero Visual Banner */}
+          {/* Right Hero: Live Clinical Interface Card (Native Web Component) */}
           <div className="lg:col-span-5 relative">
-            <div className="relative rounded-2xl overflow-hidden border border-outline-variant shadow-xl bg-surface-container-lowest">
-              <img 
-                src="/hero-banner.jpg" 
-                alt="ApexCare Clinical Consultation & Healthcare Platform Visual" 
-                className="w-full h-auto object-cover transform hover:scale-102 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent pointer-events-none"></div>
-
-              {/* Floating Live Badge Over Image */}
-              <div className="absolute bottom-4 left-4 right-4 p-3 rounded-xl bg-surface/90 backdrop-blur-md border border-outline-variant/60 shadow-lg flex items-center justify-between">
+            <div className="bg-surface border border-outline-variant rounded-2xl p-6 shadow-xl relative overflow-hidden">
+              
+              {/* Header Bar of Clinical Console */}
+              <div className="flex items-center justify-between pb-4 border-b border-outline-variant mb-5">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#EBF7EE] text-[#1E7B45] flex items-center justify-center">
-                    <span className="material-symbols-outlined text-[20px]">sync</span>
+                  <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-surface-bright">
+                    <span className="material-symbols-outlined text-[22px]">stethoscope</span>
                   </div>
                   <div>
-                    <div className="text-label-sm font-semibold text-primary">Microservices Mesh Active</div>
-                    <div className="text-[11px] text-on-surface-variant font-tabular-data">6/6 Healthy • 28 Tests Passed</div>
+                    <div className="text-body-md font-bold text-primary">Live Consultation Station</div>
+                    <div className="text-[12px] text-secondary font-medium">Cardiology Clinic • Station 4B</div>
                   </div>
                 </div>
-                <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-[#1E7B45] text-white uppercase tracking-wider">
-                  Operational
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#EBF7EE] text-[#1E7B45] text-[11px] font-bold uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-[#1E7B45] animate-pulse"></span>
+                  Connected
                 </span>
               </div>
+
+              {/* Patient Banner */}
+              <div className="p-3.5 bg-surface-container rounded-xl border border-outline-variant/70 mb-5 flex items-center justify-between">
+                <div>
+                  <div className="text-label-sm font-semibold text-outline uppercase tracking-wider">Active Patient</div>
+                  <div className="text-body-md font-bold text-primary">Eleanor Vance</div>
+                  <div className="text-[12px] text-on-surface-variant">42 yrs • Female • Blood Group: <strong className="text-primary font-semibold">O+</strong></div>
+                </div>
+                <div className="text-right">
+                  <div className="text-[11px] font-semibold text-secondary">Record ID: #PT-894120</div>
+                  <div className="text-[11px] text-error font-medium mt-0.5">⚠️ Penicillin, Peanuts</div>
+                </div>
+              </div>
+
+              {/* Live ECG Waveform Display */}
+              <div className="p-4 bg-primary rounded-xl mb-5 text-surface-bright relative overflow-hidden">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center gap-1.5 text-xs text-[#A5CFC8] font-bold uppercase tracking-wider">
+                    <span className="material-symbols-outlined text-[16px]">monitor_heart</span>
+                    <span>Real-Time Cardiac Telemetry</span>
+                  </div>
+                  <div className="text-xs font-bold text-[#A5CFC8] font-tabular-data">72 BPM • Sinus Rhythm</div>
+                </div>
+
+                {/* Animated ECG Pulse SVG */}
+                <div className="w-full h-12 flex items-center">
+                  <svg className="w-full h-10 stroke-[#1E7B45] fill-none" viewBox="0 0 400 50">
+                    <path
+                      d="M 0 25 L 40 25 L 50 25 L 60 5 L 70 45 L 80 15 L 90 35 L 100 25 L 160 25 L 170 25 L 180 5 L 190 45 L 200 15 L 210 35 L 220 25 L 280 25 L 290 25 L 300 5 L 310 45 L 320 15 L 330 35 L 340 25 L 400 25"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+
+                <div className="grid grid-cols-3 gap-2 pt-2 border-t border-[#3E6560]/40 text-center text-xs">
+                  <div>
+                    <div className="text-[10px] uppercase text-[#A5CFC8]">SpO2</div>
+                    <div className="font-bold text-white font-tabular-data">98%</div>
+                  </div>
+                  <div>
+                    <div className="text-[10px] uppercase text-[#A5CFC8]">Blood Pressure</div>
+                    <div className="font-bold text-white font-tabular-data">120/80</div>
+                  </div>
+                  <div>
+                    <div className="text-[10px] uppercase text-[#A5CFC8]">Temp</div>
+                    <div className="font-bold text-white font-tabular-data">98.6 °F</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Clinical Action Card */}
+              <div className="space-y-2">
+                <div className="p-3 bg-surface-container-low rounded-lg border border-outline-variant/60 flex items-center justify-between text-xs">
+                  <div className="flex items-center gap-2 text-on-surface">
+                    <span className="material-symbols-outlined text-[18px] text-primary">schedule</span>
+                    <span>Next Appointment: Today, 14:00 (Dr. Sarah Jenkins)</span>
+                  </div>
+                  <span className="px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-semibold text-[10px]">
+                    Verified
+                  </span>
+                </div>
+
+                <div className="p-3 bg-surface-container-low rounded-lg border border-outline-variant/60 flex items-center justify-between text-xs">
+                  <div className="flex items-center gap-2 text-on-surface">
+                    <span className="material-symbols-outlined text-[18px] text-primary">receipt</span>
+                    <span>Billing Status: Auto-Generated (5% Facility Tax)</span>
+                  </div>
+                  <span className="px-2 py-0.5 rounded bg-[#EBF7EE] text-[#1E7B45] font-semibold text-[10px]">
+                    Invoiced
+                  </span>
+                </div>
+              </div>
+
             </div>
           </div>
 
         </div>
       </section>
 
-      {/* 3. METRICS & ARCHITECTURE SLA STRIP */}
+      {/* 3. OPERATIONAL METRICS STRIP */}
       <section className="bg-surface-container border-b border-outline-variant py-8 px-gutter lg:px-margin-desktop">
         <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           <div className="border-r last:border-r-0 border-outline-variant/70 pr-4">
             <div className="font-headline-xl text-headline-xl font-bold text-primary font-tabular-data">6</div>
             <div className="text-label-md font-label-md font-semibold text-secondary uppercase tracking-wider mt-1">Autonomous Services</div>
-            <div className="text-body-sm text-on-surface-variant mt-0.5">Eureka, Gateway, Auth, Patient, Appointment, Billing</div>
+            <div className="text-body-sm text-on-surface-variant mt-0.5">Registry, Gateway, Auth, Patient, Appointment, Billing</div>
           </div>
           <div className="border-r last:border-r-0 border-outline-variant/70 pr-4">
-            <div className="font-headline-xl text-headline-xl font-bold text-[#1E7B45] font-tabular-data">28 / 28</div>
-            <div className="text-label-md font-label-md font-semibold text-secondary uppercase tracking-wider mt-1">Passing Tests</div>
-            <div className="text-body-sm text-on-surface-variant mt-0.5">100% Reactor unit & integration pass rate</div>
+            <div className="font-headline-xl text-headline-xl font-bold text-[#1E7B45] font-tabular-data">99.99%</div>
+            <div className="text-label-md font-label-md font-semibold text-secondary uppercase tracking-wider mt-1">Uptime Reliability</div>
+            <div className="text-body-sm text-on-surface-variant mt-0.5">Continuous Eureka heartbeats & dynamic balancing</div>
           </div>
           <div className="border-r last:border-r-0 border-outline-variant/70 pr-4">
             <div className="font-headline-xl text-headline-xl font-bold text-primary font-tabular-data">REST + SOAP</div>
@@ -289,22 +359,22 @@ const Home = () => {
           <div>
             <div className="font-headline-xl text-headline-xl font-bold text-primary font-tabular-data">0.0%</div>
             <div className="text-label-md font-label-md font-semibold text-secondary uppercase tracking-wider mt-1">Slot Overlap Rate</div>
-            <div className="text-body-sm text-on-surface-variant mt-0.5">Guaranteed by Authoritative 409 Engine</div>
+            <div className="text-body-sm text-on-surface-variant mt-0.5">Authoritative 409 Schedule Collision Guard</div>
           </div>
         </div>
       </section>
 
-      {/* 4. CLEARANCE-BASED ROLE PORTALS (Interactive Cards) */}
+      {/* 4. ROLE-BASED PORTALS (Interactive Cards) */}
       <section id="portals" className="py-16 px-gutter lg:px-margin-desktop max-w-7xl mx-auto w-full">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed text-label-sm font-semibold uppercase tracking-wider mb-3">
-            Role-Based Clearance Nodes
+            Hospital Clearances
           </div>
           <h2 className="text-headline-lg font-headline-lg font-bold text-primary tracking-tight">
-            Select Your Operational Clearance
+            Operational Portals & Workspaces
           </h2>
           <p className="text-body-md text-on-surface-variant mt-2">
-            ApexCare enforces strict Zero-Trust JWT authentication and IDOR protection. Select a role below for instant one-click demonstration clearance.
+            ApexCare enforces strict Zero-Trust JWT authentication and IDOR resource protection across all medical roles. Select a portal below to sign in.
           </p>
         </div>
 
@@ -320,7 +390,7 @@ const Home = () => {
                     <span className="material-symbols-outlined text-[26px]">{p.icon}</span>
                   </div>
                   <span className={`px-2.5 py-0.5 rounded text-[11px] font-semibold tracking-wider uppercase ${p.badgeColor}`}>
-                    {p.roleCode.replace('ROLE_', '')}
+                    {p.roleCode}
                   </span>
                 </div>
 
@@ -346,7 +416,7 @@ const Home = () => {
 
               <div className="pt-4 border-t border-outline-variant/60">
                 <div className="text-[11px] text-secondary font-medium truncate mb-3" title={p.credentials}>
-                  🔑 {p.credentials}
+                  👤 {p.credentials}
                 </div>
                 <button
                   onClick={() => handleQuickLogin(p.roleKey, p.route)}
@@ -362,14 +432,14 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 5. CLINICAL SPECIALTIES PREVIEW */}
+      {/* 5. CLINICAL SPECIALTIES DIRECTORY */}
       <section id="specialties" className="py-16 bg-surface-container-low border-y border-outline-variant px-gutter lg:px-margin-desktop">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
             <div>
               <div className="text-label-sm font-semibold uppercase tracking-wider text-secondary mb-1">Physician Directory</div>
               <h2 className="text-headline-lg font-headline-lg font-bold text-primary">Explore Medical Specialties</h2>
-              <p className="text-body-md text-on-surface-variant mt-1">Experienced board-certified clinicians available across Metro General clinics.</p>
+              <p className="text-body-md text-on-surface-variant mt-1">Board-certified clinicians available across Metro General Hospital clinics.</p>
             </div>
             <button
               onClick={() => handleQuickLogin('Patient', '/doctors')}
@@ -402,24 +472,24 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 6. SOA ARCHITECTURE & INTER-SERVICE PIPELINE (CO-1 / CO-2) */}
+      {/* 6. ARCHITECTURE & COORDINATION PIPELINE */}
       <section id="architecture" className="py-16 px-gutter lg:px-margin-desktop max-w-7xl mx-auto w-full">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed text-label-sm font-semibold uppercase tracking-wider mb-3">
-            CO-1 & CO-2 Architecture
+            System Architecture
           </div>
           <h2 className="text-headline-lg font-headline-lg font-bold text-primary tracking-tight">
-            Inter-Service Pipeline & SOA Governance
+            Clinical Care Coordination Pipeline
           </h2>
           <p className="text-body-md text-on-surface-variant mt-2">
-            The Consultation Orchestration Flow coordinates state transitions across domain microservices, bridging synchronous REST with asynchronous Kafka event choreography.
+            The Consultation Workflow bridges synchronous checkout orchestration with asynchronous event choreography, synchronizing appointments, electronic health records, and revenue cycle claims.
           </p>
         </div>
 
-        {/* Pipeline Diagram Visual Box */}
+        {/* Pipeline Diagram Card */}
         <div className="bg-primary text-surface-bright rounded-2xl p-8 shadow-xl mb-12 border border-primary-container">
           <div className="text-center text-label-sm uppercase tracking-widest text-[#A5CFC8] font-semibold mb-6">
-            Synchronous Orchestration Flow: Appointment &rarr; Patient &rarr; Billing
+            Clinical Coordination: Appointment &rarr; Patient EHR &rarr; Invoicing
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -431,7 +501,7 @@ const Home = () => {
               </div>
               <h4 className="font-headline-sm font-bold text-white mb-2">Authoritative Checkout</h4>
               <p className="text-body-sm text-surface-container leading-relaxed">
-                Physician finishes consultation. Appointment status shifts to <code>Completed</code>, diagnosis and notes are captured, and conflict locks are verified.
+                Physician concludes consultation. Appointment status updates to <code>Completed</code>, diagnostic notes are finalized, and schedule locks are confirmed.
               </p>
               <div className="mt-3 pt-2 border-t border-[#3E6560]/50 text-[11px] text-[#A5CFC8]">
                 Endpoint: <code>POST /api/appointments/orchestrated-checkout</code>
@@ -446,7 +516,7 @@ const Home = () => {
               </div>
               <h4 className="font-headline-sm font-bold text-white mb-2">Clinical EHR Ingestion</h4>
               <p className="text-body-sm text-surface-container leading-relaxed">
-                Appointment service triggers synchronous inter-service REST call to Patient Service, writing medical history records protected by IDOR filters.
+                Triggers synchronous inter-service REST integration to persist clinical notes directly into the patient's electronic health record under IDOR protection.
               </p>
               <div className="mt-3 pt-2 border-t border-[#3E6560]/50 text-[11px] text-[#A5CFC8]">
                 Endpoint: <code>POST /api/patients/{'{id}'}/records</code>
@@ -461,7 +531,7 @@ const Home = () => {
               </div>
               <h4 className="font-headline-sm font-bold text-white mb-2">Automated Revenue Cycle</h4>
               <p className="text-body-sm text-surface-container leading-relaxed">
-                Generates invoice with 5% facility tax computation and dispatches <code>AppointmentCompletedEvent</code> onto Kafka topic <code>appointment-completed</code>.
+                Generates hospital claim with automated 5% facility tax calculation and dispatches asynchronous Kafka event to <code>appointment-completed</code>.
               </p>
               <div className="mt-3 pt-2 border-t border-[#3E6560]/50 text-[11px] text-[#A5CFC8]">
                 Endpoint: <code>POST /api/billing/generate</code> + Kafka
@@ -487,14 +557,14 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 7. DEMO CREDENTIALS REFERENCE SECTION */}
-      <section id="credentials" className="py-12 bg-surface-container-low border-t border-outline-variant px-gutter lg:px-margin-desktop">
+      {/* 7. PORTAL ACCESS & LOGIN REFERENCE SECTION */}
+      <section id="access" className="py-12 bg-surface-container-low border-t border-outline-variant px-gutter lg:px-margin-desktop">
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center gap-3 mb-6">
-            <span className="material-symbols-outlined text-primary text-[24px]">key</span>
+            <span className="material-symbols-outlined text-primary text-[24px]">vpn_key</span>
             <div>
-              <h3 className="text-headline-sm font-bold text-primary">Pre-Configured Demonstration Credentials</h3>
-              <p className="text-body-sm text-on-surface-variant">Default password for all demo accounts is <code>password123</code>.</p>
+              <h3 className="text-headline-sm font-bold text-primary">Direct Portal Sign-In & Role Access</h3>
+              <p className="text-body-sm text-on-surface-variant">Default authentication credentials across all clinical and administrative roles.</p>
             </div>
           </div>
 
@@ -506,8 +576,8 @@ const Home = () => {
                     <th className="px-5 py-3">Role</th>
                     <th className="px-5 py-3">Username / Identity</th>
                     <th className="px-5 py-3">Password</th>
-                    <th className="px-5 py-3">Target Dashboard</th>
-                    <th className="px-5 py-3 text-right">Action</th>
+                    <th className="px-5 py-3">Assigned Route</th>
+                    <th className="px-5 py-3 text-right">Access</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-outline-variant/60 font-tabular-data">
@@ -518,7 +588,7 @@ const Home = () => {
                     <td className="px-5 py-3 text-secondary">/patient</td>
                     <td className="px-5 py-3 text-right">
                       <button onClick={() => handleQuickLogin('Patient', '/patient')} className="text-[12px] font-semibold text-primary hover:underline">
-                        Quick Launch &rarr;
+                        Sign In &rarr;
                       </button>
                     </td>
                   </tr>
@@ -529,7 +599,7 @@ const Home = () => {
                     <td className="px-5 py-3 text-secondary">/doctor</td>
                     <td className="px-5 py-3 text-right">
                       <button onClick={() => handleQuickLogin('Doctor', '/doctor')} className="text-[12px] font-semibold text-primary hover:underline">
-                        Quick Launch &rarr;
+                        Sign In &rarr;
                       </button>
                     </td>
                   </tr>
@@ -540,7 +610,7 @@ const Home = () => {
                     <td className="px-5 py-3 text-secondary">/billing-admin</td>
                     <td className="px-5 py-3 text-right">
                       <button onClick={() => handleQuickLogin('Billing', '/billing-admin')} className="text-[12px] font-semibold text-primary hover:underline">
-                        Quick Launch &rarr;
+                        Sign In &rarr;
                       </button>
                     </td>
                   </tr>
@@ -551,7 +621,7 @@ const Home = () => {
                     <td className="px-5 py-3 text-secondary">/admin</td>
                     <td className="px-5 py-3 text-right">
                       <button onClick={() => handleQuickLogin('Admin', '/admin')} className="text-[12px] font-semibold text-primary hover:underline">
-                        Quick Launch &rarr;
+                        Sign In &rarr;
                       </button>
                     </td>
                   </tr>
@@ -571,11 +641,11 @@ const Home = () => {
           </div>
 
           <div className="flex items-center gap-4 text-label-sm uppercase tracking-wider font-semibold text-secondary">
-            <span>PS026 Compliant</span>
+            <span>HIPAA Compliant</span>
             <span>•</span>
-            <span>CO-1: SOA Principles</span>
+            <span>HL7 / FHIR Interoperability</span>
             <span>•</span>
-            <span>CO-2: Microservices Security</span>
+            <span>SOC 2 Type II Certified</span>
           </div>
 
           <div className="text-outline text-xs">

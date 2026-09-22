@@ -32,9 +32,16 @@ const Login = () => {
     <main className="min-h-screen flex flex-col lg:flex-row w-full bg-background text-on-surface antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed">
       {/* Left Architectural & Institutional Presence Frame */}
       <section className="relative w-full lg:w-5/12 xl:w-1/2 bg-surface-container-low border-b lg:border-b-0 lg:border-r border-outline-variant flex flex-col justify-between p-margin-tablet lg:p-margin-desktop overflow-hidden">
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-          <div className="w-full h-full bg-cover bg-center filter grayscale contrast-125 opacity-15" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1600&q=80')" }}></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-surface-container-low/90 via-surface-container-low/75 to-surface-container-low/95"></div>
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-10">
+          <svg className="w-full h-full text-primary" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+            <defs>
+              <pattern id="login-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="1" strokeOpacity="0.3" />
+                <circle cx="40" cy="40" r="1.5" fill="currentColor" fillOpacity="0.4" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#login-grid)" />
+          </svg>
         </div>
         
         {/* Top Section */}
