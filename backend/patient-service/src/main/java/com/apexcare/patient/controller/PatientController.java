@@ -35,6 +35,15 @@ public class PatientController {
         return ResponseEntity.ok(patientRepository.findAll());
     }
 
+    @PostMapping
+    public ResponseEntity<Patient> registerPatient(@RequestBody Patient patient) {
+        if (patient.getId() == null || patient.getId().isBlank()) {
+            patient.setId("u" + (patientRepository.count() + 1));
+        }
+        Patient saved = patientRepository.save(patient);
+        return ResponseEntity.status(HttpStatus.CREATED).body(saved);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<?> getPatientById(@PathVariable("id") String id,
                                             @RequestHeader(value = "X-User-Id", required = false) String headerUserId,

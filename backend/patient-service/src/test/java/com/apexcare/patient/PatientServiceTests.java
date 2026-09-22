@@ -20,6 +20,28 @@ public class PatientServiceTests {
     private MockMvc mockMvc;
 
     @Test
+    void testRegisterPatient_ReturnsCreated() throws Exception {
+        String newPatientJson = """
+            {
+                "name": "David Miller",
+                "age": 35,
+                "gender": "Male",
+                "bloodGroup": "B+",
+                "allergies": "None",
+                "email": "david.miller@example.com"
+            }
+            """;
+
+        mockMvc.perform(post("/api/patients")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(newPatientJson))
+                .andExpect(status().isCreated())
+                .andExpect(jsonPath("$.id", notNullValue()))
+                .andExpect(jsonPath("$.name", is("David Miller")))
+                .andExpect(jsonPath("$.bloodGroup", is("B+")));
+    }
+
+    @Test
     void testGetPatientById_Authorized_ReturnsPatient() throws Exception {
         mockMvc.perform(get("/api/patients/u1")
                 .header("X-User-Id", "u1")
