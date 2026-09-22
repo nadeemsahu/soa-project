@@ -22,7 +22,7 @@ const Login = () => {
       if (userRole === 'DOCTOR') navigate('/doctor');
       else if (userRole === 'BILLING_STAFF' || userRole === 'BILLING') navigate('/billing-admin');
       else if (userRole === 'ADMIN' || userRole === 'ADMINISTRATOR') navigate('/admin');
-      else navigate('/');
+      else navigate('/patient');
     } catch (err) {
       console.error("Login failed", err);
     }
@@ -99,7 +99,7 @@ const Login = () => {
 
           <div className="mb-space-lg">
             <label className="block font-label-sm text-label-sm uppercase tracking-wider text-secondary mb-space-xs">Clearance Scope</label>
-            <div className="grid grid-cols-4 gap-1 p-1 bg-surface-container-low rounded border border-outline-variant" role="tablist">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-1 p-1 bg-surface-container-low rounded border border-outline-variant" role="tablist">
               {[
                 { name: 'Patient', label: 'Patient MRN or Email', default: 'PT-894120' },
                 { name: 'Doctor', label: 'Provider NPI / Work Email', default: 'dr.julian.vance@metrogeneral.org' },

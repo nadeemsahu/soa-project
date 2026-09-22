@@ -21,15 +21,16 @@ apiClient.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
-// Response interceptor to handle global errors (e.g., 401 Unauthorized)
 apiClient.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response && error.response.status === 401) {
-      // Clear invalid token
-      localStorage.removeItem('apex_jwt');
-      // Dispatch a custom event so the App can listen and redirect to login
-      window.dispatchEvent(new Event('auth:unauthorized'));
+      const token = localStorage.getItem('apex_jwt');
+      // Only trigger global session ejection if a real production token was rejected (not mock fallback)
+      if (token && !token.startsWith('mock_jwt_')) {
+        localStorage.removeItem('apex_jwt');
+        window.dispatchEvent(new Event('auth:unauthorized'));
+      }
     }
     return Promise.reject(error);
   }

@@ -34,7 +34,7 @@ export const ApexProvider = ({ children }) => {
 
             if (user.id) {
               const recRes = await apiClient.get(`/patients/${user.id}/records`).catch(() => null);
-              setRecords(recRes?.data || await mockApi.getRecords());
+              setRecords(recRes?.data?.length ? recRes.data : await mockApi.getRecords());
             }
             return;
           }
@@ -70,8 +70,14 @@ export const ApexProvider = ({ children }) => {
     try {
       if (isLiveGatewayEnabled()) {
         try {
+          let targetIdentity = roleInput;
+          if (roleKey === 'PATIENT') targetIdentity = 'PT-894120';
+          else if (roleKey === 'DOCTOR') targetIdentity = 'dr.julian.vance@metrogeneral.org';
+          else if (roleKey === 'BILLING' || roleKey === 'BILLING_STAFF') targetIdentity = 'revcycle.jvance@apexcare.org';
+          else if (roleKey === 'ADMIN' || roleKey === 'ADMINISTRATOR') targetIdentity = 'sec.admin@apexcare.net';
+
           const res = await apiClient.post('/auth/login', {
-            identity: roleInput,
+            identity: targetIdentity,
             password: rawPassword
           });
 
