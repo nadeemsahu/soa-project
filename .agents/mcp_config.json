@@ -1,0 +1,20 @@
+{
+  "mcpServers": {
+    "ponytail": {
+      "command": "node",
+      "args": [
+        "/home/nadeem/.gemini/config/plugins/ponytail/ponytail-mcp/index.js"
+      ]
+    },
+    "laya-mcp": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "laya-mcp"
+      ],
+      "env": {
+        "LAYA_MCP_PYTHON": "/home/nadeem/.local/share/laya-mcp-venv/bin/python"
+      }
+    }
+  }
+}
