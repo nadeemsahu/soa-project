@@ -7,10 +7,11 @@
       ]
     },
     "laya-mcp": {
-      "command": "npx",
+      "command": "/home/nadeem/.local/share/laya-mcp-venv/bin/python",
       "args": [
-        "-y",
-        "laya-mcp"
+        "-m",
+        "laya_mcp",
+        "mcp"
       ],
       "env": {
         "LAYA_MCP_PYTHON": "/home/nadeem/.local/share/laya-mcp-venv/bin/python"
