@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import { useApex } from './context/ApexContext';
 
+import Home from './pages/Home';
 import Login from './pages/Login';
 import AppLayout from './components/layout/AppLayout';
 import ProtectedRoute from './components/layout/ProtectedRoute';
@@ -41,12 +42,16 @@ function App() {
 
   return (
     <Routes>
+      {/* Public Home & Landing Pages */}
+      <Route path="/" element={<Home />} />
+      <Route path="/home" element={<Home />} />
       <Route path="/login" element={<Login />} />
       
       <Route element={<AppLayout />}>
         {/* Patient Routes */}
         <Route element={<ProtectedRoute allowedRoles={['PATIENT']} />}>
-          <Route path="/" element={<PatientDashboard />} />
+          <Route path="/patient" element={<PatientDashboard />} />
+          <Route path="/dashboard" element={<PatientDashboard />} />
           <Route path="/doctors" element={<DoctorDiscovery />} />
           <Route path="/book/:doctorId?" element={<AppointmentBooking />} />
           <Route path="/appointments" element={<AppointmentsList />} />

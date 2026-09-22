@@ -16,7 +16,7 @@ const AppLayout = () => {
     const role = user?.role?.toUpperCase();
     if (role === 'PATIENT') {
       return [
-        { name: 'Overview', path: '/', icon: 'dashboard' },
+        { name: 'Dashboard', path: '/patient', icon: 'dashboard' },
         { name: 'Appointments', path: '/appointments', icon: 'calendar_today', badge: '1' },
         { name: 'Doctors', path: '/doctors', icon: 'medical_services' },
         { name: 'Medical Records', path: '/records', icon: 'clinical_notes' },
@@ -132,6 +132,16 @@ const AppLayout = () => {
                   </Link>
                 );
               })}
+              
+              <div className="pt-2 mt-2 border-t border-outline-variant/60">
+                <Link 
+                  to="/" 
+                  className="flex items-center gap-3 px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors text-body-sm"
+                >
+                  <span className="material-symbols-outlined text-[18px]">home</span>
+                  <span>Platform Home</span>
+                </Link>
+              </div>
             </nav>
           </div>
           

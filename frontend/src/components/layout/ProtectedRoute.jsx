@@ -15,7 +15,7 @@ const ProtectedRoute = ({ allowedRoles = [] }) => {
 
   if (normalizedAllowed.length > 0 && !normalizedAllowed.includes(userRole)) {
     // Logged in but insufficient permissions - redirect to role-specific dashboard
-    if (userRole === 'PATIENT') return <Navigate to="/" replace />;
+    if (userRole === 'PATIENT') return <Navigate to="/patient" replace />;
     if (userRole === 'DOCTOR') return <Navigate to="/doctor" replace />;
     if (userRole === 'BILLING_STAFF') return <Navigate to="/billing-admin" replace />;
     if (userRole === 'ADMIN') return <Navigate to="/admin" replace />;
