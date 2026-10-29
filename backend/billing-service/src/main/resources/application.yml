@@ -5,14 +5,16 @@ spring:
   application:
     name: billing-service
   datasource:
-    url: jdbc:h2:mem:billingdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-    driver-class-name: org.h2.Driver
-    username: sa
-    password: 
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/apexcare}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
     show-sql: false
   kafka:
     bootstrap-servers: localhost:9092
@@ -23,7 +25,7 @@ spring:
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
         spring.json.trusted.packages: "*"
-        spring.json.value.default.type: com.apexcare.billing.event.AppointmentCompletedEvent
+        spring.json.value.default.type: com.klu.billing.event.AppointmentCompletedEvent
 
 apexcare:
   jwt:

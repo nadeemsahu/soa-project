@@ -15,7 +15,7 @@ spring:
         - id: patient-service-route
           uri: lb://PATIENT-SERVICE
           predicates:
-            - Path=/api/patients/**, /ws/**
+            - Path=/api/patients/**, /api/doctors/**, /ws/**
 
         - id: appointment-service-route
           uri: lb://APPOINTMENT-SERVICE
@@ -27,12 +27,15 @@ spring:
           predicates:
             - Path=/api/billing/**
 
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials Access-Control-Allow-Headers Access-Control-Allow-Methods, RETAIN_UNIQUE
+
       globalcors:
         cors-configurations:
           '[/**]':
             allowedOrigins:
-              - "http://localhost:5173"
-              - "http://127.0.0.1:5173"
+              - "http://localhost:*"
+              - "http://127.0.0.1:*"
             allowedMethods:
               - GET
               - POST
@@ -51,5 +54,6 @@ eureka:
   instance:
     prefer-ip-address: true
   client:
+    registry-fetch-interval-seconds: 5
     service-url:
       defaultZone: http://localhost:8761/eureka/

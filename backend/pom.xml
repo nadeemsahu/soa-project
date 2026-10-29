@@ -11,7 +11,7 @@
         <relativePath/>
     </parent>
 
-    <groupId>com.apexcare</groupId>
+    <groupId>com.klu</groupId>
     <artifactId>apexcare-backend</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
@@ -58,6 +58,11 @@
                 <artifactId>jjwt-jackson</artifactId>
                 <version>${jjwt.version}</version>
                 <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>42.7.4</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

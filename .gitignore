@@ -15,4 +15,5 @@
 logs/
 *.log
 *.pid
+*.png
 .DS_Store
