@@ -1,7 +1,5 @@
 package com.klu.appointment;
 
-import com.klu.appointment.model.Appointment;
-import com.klu.appointment.repository.AppointmentRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

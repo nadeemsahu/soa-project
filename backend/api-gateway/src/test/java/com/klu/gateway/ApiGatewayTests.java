@@ -1,6 +1,5 @@
 package com.klu.gateway;
 
-import com.klu.gateway.filter.JwtAuthenticationFilter;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import org.junit.jupiter.api.BeforeEach;

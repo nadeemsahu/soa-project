@@ -1,7 +1,5 @@
 package com.klu.billing;
 
-import com.klu.billing.model.Bill;
-import com.klu.billing.repository.BillRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,11 +1,5 @@
 package com.klu.patient;
 
-import com.klu.patient.model.Doctor;
-import com.klu.patient.model.MedicalRecord;
-import com.klu.patient.model.Patient;
-import com.klu.patient.repository.DoctorRepository;
-import com.klu.patient.repository.MedicalRecordRepository;
-import com.klu.patient.repository.PatientRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
