@@ -25,7 +25,7 @@ spring:
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
         spring.json.trusted.packages: "*"
-        spring.json.value.default.type: com.klu.billing.event.AppointmentCompletedEvent
+        spring.json.value.default.type: com.klu.billing.AppointmentCompletedEvent
 
 apexcare:
   jwt:
