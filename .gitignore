@@ -10,6 +10,11 @@
 .vscode/
 *.swp
 *.swo
+.project
+.classpath
+.settings/
+bin/
+**/bin/
 
 # Logs & Temporary
 logs/
@@ -17,3 +22,4 @@ logs/
 *.pid
 *.png
 .DS_Store
+
