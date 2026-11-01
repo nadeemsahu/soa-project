@@ -1,0 +1,10 @@
+$kind: http-request
+name: ""
+url: http://localhost:8080/api/auth/login
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: '{"identity":"PT-894120","password":"password123"}'
+order: 1000

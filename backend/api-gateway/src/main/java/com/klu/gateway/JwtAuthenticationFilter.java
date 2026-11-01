@@ -29,7 +29,10 @@ public class JwtAuthenticationFilter implements GlobalFilter, Ordered {
     private final List<String> openEndpoints = List.of(
             "/api/auth",
             "/ws",
-            "/actuator"
+            "/actuator",
+            "/swagger-ui",
+            "/v3/api-docs",
+            "/webjars"
     );
 
     public JwtAuthenticationFilter(@Value("${apexcare.jwt.secret}") String secret) {

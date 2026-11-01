@@ -27,6 +27,34 @@ spring:
           predicates:
             - Path=/api/billing/**
 
+        - id: auth-docs-route
+          uri: lb://AUTH-SERVICE
+          predicates:
+            - Path=/v3/api-docs/auth
+          filters:
+            - SetPath=/v3/api-docs
+
+        - id: patient-docs-route
+          uri: lb://PATIENT-SERVICE
+          predicates:
+            - Path=/v3/api-docs/patients
+          filters:
+            - SetPath=/v3/api-docs
+
+        - id: appointment-docs-route
+          uri: lb://APPOINTMENT-SERVICE
+          predicates:
+            - Path=/v3/api-docs/appointments
+          filters:
+            - SetPath=/v3/api-docs
+
+        - id: billing-docs-route
+          uri: lb://BILLING-SERVICE
+          predicates:
+            - Path=/v3/api-docs/billing
+          filters:
+            - SetPath=/v3/api-docs
+
       default-filters:
         - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials Access-Control-Allow-Headers Access-Control-Allow-Methods, RETAIN_UNIQUE
 
@@ -46,6 +74,19 @@ spring:
             allowedHeaders: "*"
             allowCredentials: true
 
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    urls:
+      - name: 1. Auth Service
+        url: /v3/api-docs/auth
+      - name: 2. Patient Service
+        url: /v3/api-docs/patients
+      - name: 3. Appointment Service
+        url: /v3/api-docs/appointments
+      - name: 4. Billing Service
+        url: /v3/api-docs/billing
+
 apexcare:
   jwt:
     secret: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
@@ -57,3 +98,4 @@ eureka:
     registry-fetch-interval-seconds: 5
     service-url:
       defaultZone: http://localhost:8761/eureka/
+
